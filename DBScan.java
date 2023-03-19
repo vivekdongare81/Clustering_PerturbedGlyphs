@@ -1,24 +1,57 @@
 package com.pack;
 import java.util.*;
 import com.pack.DataPlotter;
+import com.pack.SVGtoCSV;
+
 public class DBScan {
 
     public static void mainDBScan(double[][]dataset) {
         // Initialize dataset and parameters
     	
     	
-        //double[][] dataset = {{1,2}, {3,4}, {50,6}, {51,7}, {9,10}};
-        double eps = 50;
-        int minPts = 0;
-        
-       // DataPlotter.mainn(dataset,"black");
+      //  double[][] datasett = {{1,2}, {3,4}, {50,6}, {51,7}, {9,10}};
+        double eps = 20;
+        int minPts = 5;
+       
+         
+         
         // Run DBSCAN algorithm
         ArrayList<ArrayList<Double>> clusters = dbscan(dataset, eps, minPts);
  
-        // Print results
+        HashMap<Double, Double> hm =new HashMap<Double, Double>();
+        
         for (int i = 0; i < clusters.size(); i++) {
             System.out.println("Cluster " + (i+1) + ": " + clusters.get(i));
+            
         }
+        for (int i = 0; i < clusters.size();i++) {
+          ArrayList<Double> temp = clusters.get(i);
+          for(int j=0;j<temp.size();j++) {
+        	  hm.put(temp.get(j),temp.get(j+1));
+        	  j++;
+          }
+          
+        }
+        System.out.println(hm);
+        System.out.println(SVGtoCSV.allCoordinateArray.size());
+     
+        for(int i=0;i<SVGtoCSV.allCoordinateArray.size();i++) {
+        	int cnt=0; int total=0;
+        	
+        	for(int j=0;j<SVGtoCSV.allCoordinateArray.get(i).size();j++) {
+        		total++;
+             if(hm.containsKey(SVGtoCSV.allCoordinateArray.get(i).get(j))){
+            	
+        		   if(Double.compare(hm.get(SVGtoCSV.allCoordinateArray.get(i).get(j)), SVGtoCSV.allCoordinateArray.get(i).get(j+1)) == 0) {
+        			    
+        			   cnt++;
+        			   }	
+        		}
+             j++;
+        	}
+        	System.out.println("for File- "+(i+1)+" total co- "+total+" incluster co- "+cnt);
+        }
+        
     }
 
     public static ArrayList<ArrayList<Double>> dbscan(double[][] dataset, double eps, int minPts) {
