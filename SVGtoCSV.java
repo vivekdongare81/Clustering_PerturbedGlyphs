@@ -16,8 +16,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.fop.fonts.FontTriplet.Matcher;
-import org.netlib.util.doubleW;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -26,37 +24,28 @@ import org.xml.sax.SAXException;
 public class SVGtoCSV {
   static int cnt=0;
   static ArrayList<Double> allCoordinates = new ArrayList<Double>();
+  static ArrayList<ArrayList<Double>> allCoordinateArray =  new  ArrayList<ArrayList<Double>>();
   
   public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
 	  
-    
-//    File folder = new File("C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles");
-//    File[] listOfFiles = folder.listFiles();
-//
-//    for (File file : listOfFiles) {
-//        if (file.isFile()) {
-//        	   String svgFilepathh = "C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\";
-//        	   
-//            System.out.println(svgFilepathh+file.getName());
-//            
-//        }
-//    }
-  
-  // String svgFilepath = "C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\a_NotoSans-Regular.svg";
-    File folder = new File("C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles");
-    File[] listOfFiles = folder.listFiles();
 
+  // String svgFilepath = "C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\a_NotoSans-Regular.svg";
+    File folder = new File("C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\o_Glyphs");
+    File[] listOfFiles = folder.listFiles();
+    int FileInx=0;
     for (File file : listOfFiles) {
         if (file.isFile()) {
-        	   String svgFilepathh = "C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\";
+        	   String svgFilepathh = "C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\o_Glyphs\\";
         	   
             System.out.println(svgFilepathh+file.getName());
             String csvFilepath = "C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\a_.csv";
             
             String pathData = extractPathData(svgFilepathh+file.getName());
+            // String pathData = extractPathData(svgFilepathh+"o_NotoSans-Regular.svg");
             System.out.println("data heree "+pathData);
             
-            List<String[]> coordinatePairs = parsePathData(pathData);
+            List<String[]> coordinatePairs = parsePathData(pathData,FileInx);
+            FileInx++;
         
             for (Iterator iterator = coordinatePairs.iterator(); iterator.hasNext();) {
         		String[] strings = (String[]) iterator.next();
@@ -64,19 +53,39 @@ public class SVGtoCSV {
         			System.out.print(s+" ");
         		} System.out.println();
         	}
-            System.out.println("cooooooooooooooooooooo");
+            
+            System.out.println("cooooo");
             System.out.println(allCoordinates);
-            saveAsCsv(csvFilepath, file.getName(),coordinatePairs);
-            System.out.println(cnt+" coordinates size- "+allCoordinates.size());
-            
-            double dataset [][]= new double[1][allCoordinates.size()];
-            for(int i=0;i<allCoordinates.size();i++) {
-            	dataset[0][i]= allCoordinates.get(i);
-            }
-            DBScan.mainDBScan(dataset);
-            
+            saveAsCsv(csvFilepath,FileInx, file.getName(),coordinatePairs);
+            System.out.println(cnt+" coordinates size- "+allCoordinates.size()+" svg data no - "+allCoordinateArray.size());
+          
+            double dataset [][]= new double[allCoordinates.size()/2][2];
+            int inx=0;
+            for(int i=0;i<allCoordinates.size();i++,i++) {
+            	
+         	double []temp = new double[2];
+         	temp[0]= allCoordinates.get(i);
+         	temp[1]= allCoordinates.get(i+1);
+         	
+
+         	//System.out.println(temp[0]+"  get  "+temp[1]);
+         	dataset[inx]=temp;  inx++;
+         }
+            DataPlotter.mainn(dataset,"black");
         }
-    }
+    } 
+    double dataset [][]= new double[allCoordinates.size()/2][2];
+    int inx=0;
+    for(int i=0;i<allCoordinates.size();i++,i++) {
+    	
+ 	double []temp = new double[2];
+ 	temp[0]= allCoordinates.get(i);
+ 	temp[1]= allCoordinates.get(i+1);
+ 	
+ 	//System.out.println(temp[0]+"  get  "+temp[1]);
+ 	dataset[inx]=temp;  inx++;
+ }
+ DBScan.mainDBScan(dataset);
     
   }
   
@@ -95,25 +104,13 @@ public class SVGtoCSV {
     String pathDataa = glyph.getElementsByTagName("path").item(0).getAttributes().getNamedItem("d").getNodeValue();
  //System.out.println(pathDataa);
 pathData.add(pathDataa);
-    // Convert path data to vector of numerical representation
-   
-    /*
-    Scanner scanner = new Scanner(new File(filepath));
-    while (scanner.hasNextLine()) {
-      String line = scanner.nextLine().trim();  System.out.println("line ->"+line);
-      if (line.startsWith("<path ")) {
-        int startIndex = line.indexOf("d=\"") + 3;
-        int endIndex = line.indexOf("\"", startIndex);
-        String path = line.substring(startIndex, endIndex);
-        pathData.add(path);
-      }
-    }
-    scanner.close();
-    */
+    
     return pathDataa;
   }
   
-  private static List<String[]> parsePathData(String pathData  ) {
+  private static List<String[]> parsePathData(String pathData ,int FileInx ) {
+	  allCoordinateArray.add (new ArrayList<Double>());
+	  
     List<String[]> coordinatePairs = new ArrayList<>();
     System.out.println(":in"); 
     String temp=" ";
@@ -128,25 +125,85 @@ pathData.add(pathDataa);
         	 for(int j=0;j<coordinates.length;j++) {
            	//  System.out.println(coordinates.length);
         		 if(j!=0) {
-        			 System.out.println("at "+temp.charAt(0)+" addding  "+coordinates[j]);
+        			 System.out.println("at "+temp.charAt(0)+" addding  "+coordinates[j]); // 173 800 
         			 if(temp.charAt(0)=='v') {
-                           allCoordinates.add( allCoordinates.get( allCoordinates.size()-2));        				 
+        				 allCoordinateArray.get(FileInx).add( allCoordinates.get( allCoordinates.size()-2));
+                           allCoordinates.add( allCoordinates.get( allCoordinates.size()-2)); 
+                           if(allCoordinates.get(j)<0) {
+                        	   allCoordinateArray.get(FileInx).add(allCoordinates.get( allCoordinates.size()-2)- Double.parseDouble(coordinates[j]));
+                        	   allCoordinates.add(allCoordinates.get( allCoordinates.size()-2)- Double.parseDouble(coordinates[j]));
+                       	}else {
+                        	 allCoordinateArray.get(FileInx).add(allCoordinates.get( allCoordinates.size()-2) +Double.parseDouble(coordinates[j]));
+                       		allCoordinates.add(allCoordinates.get( allCoordinates.size()-2) +Double.parseDouble(coordinates[j]));
+                       	}
         			 }
-        			
-        			 allCoordinates.add(Double.parseDouble(coordinates[j]));
+        			 else if(temp.charAt(0)=='h') {
+        				 if(allCoordinates.get(j)<0) {
+        					 allCoordinateArray.get(FileInx).add(allCoordinates.get( allCoordinates.size()-2) -Double.parseDouble(coordinates[j]));
+                      	   allCoordinates.add(allCoordinates.get( allCoordinates.size()-2) -Double.parseDouble(coordinates[j]));
+                     	}else {
+                     		 allCoordinateArray.get(FileInx).add(allCoordinates.get( allCoordinates.size()-2)+Double.parseDouble(coordinates[j]));
+                     		allCoordinates.add(allCoordinates.get( allCoordinates.size()-2)+Double.parseDouble(coordinates[j]));
+                     	}
+        				 allCoordinateArray.get(FileInx).add(allCoordinates.get( allCoordinates.size()-2));
+                         allCoordinates.add( allCoordinates.get( allCoordinates.size()-2)); 
+                         
+      			 }   else if(temp.charAt(0)=='q') {
+      				  toAddCorr[j+1]=coordinates[j];
+      				 j++;
+      				  toAddCorr[j+1]=coordinates[j];
+      				  j++;
+      				 allCoordinateArray.get(FileInx).add(Double.parseDouble(coordinates[j]));
+      				 allCoordinates.add(Double.parseDouble(coordinates[j]));
+      				  toAddCorr[j+1]=coordinates[j];
+      				 j++;
+      				 allCoordinateArray.get(FileInx).add(Double.parseDouble(coordinates[j]));
+      				 allCoordinates.add(Double.parseDouble(coordinates[j]));
+      				 
+      			 }   else if(temp.charAt(0)=='c') {
+      				  toAddCorr[j+1]=coordinates[j];
+      				 j++;
+      				  toAddCorr[j+1]=coordinates[j];
+      				 j++;
+      				  toAddCorr[j+1]=coordinates[j];
+      				 j++;
+      				  toAddCorr[j+1]=coordinates[j];
+      				 j++;
+      				allCoordinateArray.get(FileInx).add(Double.parseDouble(coordinates[j]));
+      				 allCoordinates.add(Double.parseDouble(coordinates[j]));
+      				  toAddCorr[j+1]=coordinates[j];
+      				 j++;
+      			    	allCoordinateArray.get(FileInx).add(Double.parseDouble(coordinates[j]));
+      				 allCoordinates.add(Double.parseDouble(coordinates[j]));
+      				 
+      			 }  else if(temp.charAt(0)=='t') {
+      				 double[] prevCoord = {allCoordinates.get(allCoordinates.size()-2),allCoordinates.get(allCoordinates.size()-1)};
+     			      double [] prevControl = {allCoordinates.get(allCoordinates.size()-4),allCoordinates.get(allCoordinates.size()-3)};
+     			      double reflectX = 2 * prevCoord[0] - prevControl[0];
+     			      double reflectY = 2 * prevCoord[1] - prevControl[1];
+     			   // allCoordinates.add(reflectX);
+     			    //allCoordinates.add(reflectY);
+     			     allCoordinateArray.get(FileInx).add(Double.parseDouble(coordinates[j]));
+     			    allCoordinates.add(Double.parseDouble(coordinates[j]));
+     			   toAddCorr[j+1]=coordinates[j];
+     			    j++;
+     			   allCoordinateArray.get(FileInx).add(Double.parseDouble(coordinates[j]));
+     			    allCoordinates.add(Double.parseDouble(coordinates[j]));
+     				 
+     			 } else{
+     				allCoordinateArray.get(FileInx).add(Double.parseDouble(coordinates[j]));
+      				 allCoordinates.add(Double.parseDouble(coordinates[j]));
         			 
-        			 if(temp.charAt(0)=='h') {
-                         allCoordinates.add( allCoordinates.get( allCoordinates.size()-2));        				 
       			 }
         			 
         		 }
-        		 
+ 
            	  toAddCorr[j+1]=coordinates[j];
              }
-        	 for(int j=0;j<toAddCorr.length;j++) {
-              	  System.out.print ("string "+j+" "+toAddCorr[j]+" ");
-              	  
-                }
+//        	 for(int j=0;j<toAddCorr.length;j++) {
+//              	  System.out.print ("string "+j+" "+toAddCorr[j]+" ");
+//              	  
+//                }
         	 coordinatePairs.add(toAddCorr);
     	      temp="";
     	      temp+=pathData.charAt(i);
@@ -247,7 +304,7 @@ pathData.add(pathDataa);
     }
   }
   
-  private static void saveAsCsv(String filepath,String fileNAME, List<String[]> data) throws IOException {
+  private static void saveAsCsv(String filepath,int FileInx, String fileNAME, List<String[]> data) throws IOException {
 	  cnt++;
 	  List<String[]>  records = new ArrayList<>();
 	  String earlierData="";
@@ -272,7 +329,7 @@ pathData.add(pathDataa);
       //writer.write(earlierData);
      
       
-    String presentData= fileNAME+"\n";
+    String presentData= " "+FileInx+" "+ fileNAME+"\n";
     for(int i=0;i<data.size();i++) {
     	String towrite="";
     	for(int j=0;j<data.get(i).length;j++) {
