@@ -26,6 +26,7 @@ public class DataPlotter {
         for (int i = 0; i < dataset.length; i++) {
             double[] point = dataset[i];
             series.add(point[0], point[1]);
+           // System.out.println(point[0]+" - "+point[1]);
         }
 
         // Add series to collection
