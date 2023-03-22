@@ -26,7 +26,7 @@ git clone < repo link >
 
 ```
 
-  -  Step 2 - Add path of Folder containing perturbed glyphs and csv in SVGtoVector.java 
+  -  Step 2 - Add path of Folder containing perturbed glyphs and csv in SVGtoVector.java  </br>
 (considering perturbed glyphs are already created and stored in folder svgFiles using FontForge Software )
 
   -  Step 3 - Add following Maven dependencies in pom.xml
