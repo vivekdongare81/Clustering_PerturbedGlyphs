@@ -57,12 +57,14 @@ git clone < repo link >
 
 ## Demo
 
-- Create and store perturbed glyphs of any character using FontForge and store it in svgFiles Folder </br>
+    * Create around 25-30 perturbed glyphs of any character using FontForge and store it in svgFiles Folder as .svg format </br>
 
 ![Screenshot from 2023-03-22 23-56-16](https://user-images.githubusercontent.com/74758376/227002187-9a8be948-4ce0-4edc-9ad7-444c8c15bf94.png)
 ![Screenshot from 2023-03-22 23-59-32](https://user-images.githubusercontent.com/74758376/227002837-0ba4f6a4-ca95-4000-9499-652cc3cc72a7.png)
 
-        * Browse to given URL to record the tools-browser which gets detected.
+    * Running CSVtoVector.java  will store path data of each glyph in pathData.csv
+ ![Screenshot from 2023-03-23 00-06-16](https://user-images.githubusercontent.com/74758376/227004468-640c99ea-2fed-46a7-9ff0-29ac9de6a231.png)
+
        
 ![image](https://user-images.githubusercontent.com/74758376/170940621-4bc505c5-cf1c-4bf2-99ee-a3814f4abb67.png)
 
