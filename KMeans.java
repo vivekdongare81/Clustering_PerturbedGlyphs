@@ -90,15 +90,7 @@ public class KMeans {
     	
     	
    	 List<Point> points = new ArrayList<KMeans.Point>();
-   	
-//    	 List<Point> points = Arrays.asList(
-//                 new Point(1.5, 1.222),
-//                 new Point(1.11, 2.33),
-//                 new Point(2.332, 1.11),
-//                 new Point(10.88, 10.11),
-//                 new Point(10.33, 11.455),
-//                 new Point(11.55, 10.66)
-//         );
+
     	 for(int i=0;i<dataset.length;i++) {
      		points.add(new Point(dataset[i][0], dataset[i][1]));
      	}
