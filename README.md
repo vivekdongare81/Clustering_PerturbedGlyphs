@@ -54,7 +54,6 @@ git clone < repo link >
 ```
 
 
-
 ## Demo
 
     * Create around 25-30 perturbed glyphs of any character using FontForge and store it in svgFiles Folder as .svg format </br>
@@ -81,7 +80,7 @@ git clone < repo link >
 ![Screenshot from 2023-03-23 00-52-40](https://user-images.githubusercontent.com/74758376/227014379-4d784a4f-1c9f-404b-8e14-9c66147da3cb.png)
 
 
-    * Using K Means Algo w'll get predefined Numbers of clusters form all the coordinates
+    * Using K Means Algo w'll get predefined Numbers of clusters from all the coordinates
     
    ![Screenshot from 2023-03-23 01-02-51](https://user-images.githubusercontent.com/74758376/227016545-1f37e848-96d6-4580-8a99-a457333036ea.png)
 
