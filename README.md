@@ -13,7 +13,7 @@ Tools/Libraries used - FontForge, Batik Lib, jfree Lib.
 
 ## Prerequisite 
 
-- FontForge Software, JDK 1.8 //... TODO
+- FontForge Software, JDK SE
  
 
 ## Installation to Run Locally
@@ -27,7 +27,7 @@ git clone < repo link >
 ```
 
   -  Step 2 - Add path of Folder containing perturbed glyphs and csv in SVGtoVector.java 
-// --TODO
+(considering perturbed glyphs are already created and stored in folder svgFiles using FontForge Software )
 
   -  Step 3 - Add following Maven dependencies in pom.xml
 ```bash
@@ -84,9 +84,9 @@ git clone < repo link >
 
 | Tools/Libraries             | Download Link                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| FontForge| [https://chromedriver.chromium.org/downloads](https://chromedriver.chromium.org/downloads)|
-| Batik | https://github.com/mozilla/geckodriver/releases|
-| jfree |[https://developer.microsoft.com/en-us/microsoft-edge](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/#downloads)| |
+| FontForge| [https://fontforge.org/en-US/downloads/](https://fontforge.org/en-US/downloads/)|
+| Batik |https://javadoc.io/doc/org.apache.xmlgraphics/batik-parser/latest/index.html|
+| jfree |[http://www.java2s.com/Code/Jar/j/Downloadjfreechartjar.html](http://www.java2s.com/Code/Jar/j/Downloadjfreechartjar.html)| |
 
 
 
