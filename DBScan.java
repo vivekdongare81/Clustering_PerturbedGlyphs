@@ -8,7 +8,7 @@ public class DBScan {
     public static void mainDBScan(double[][]dataset) {
      
         double eps = 20;
-        int minPts = 3;
+        int minPts = 5;
        
         // Run DBSCAN algorithm
         ArrayList<ArrayList<Double>> clusters = dbscan(dataset, eps, minPts);
@@ -37,13 +37,13 @@ public class DBScan {
         	for(int j=0;j<SVGtoVector.xyCoordinates.get(i).size();j++) {
         		total++;
              if(hm.containsKey(SVGtoVector.xyCoordinates.get(i).get(j))){
-            	 System.out.println();
+            	 //System.out.println();
         		   if(Double.compare(hm.get(SVGtoVector.xyCoordinates.get(i).get(j)),SVGtoVector.xyCoordinates.get(i).get(j+1)) == 0) {
         			   
         			   cnt++;
         			   }	
         		}else {
- 				   System.out.println();
+ 				   //System.out.println();
  			   }
              j++;
         	}
