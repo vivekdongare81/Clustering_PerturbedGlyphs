@@ -1,20 +1,15 @@
 package com.pack;
 import java.util.*;
 import com.pack.DataPlotter;
-import com.pack.SVGtoCSV;
+
 
 public class DBScan {
 
     public static void mainDBScan(double[][]dataset) {
-        // Initialize dataset and parameters
-    	
-    	
-      //  double[][] datasett = {{1,2}, {3,4}, {50,6}, {51,7}, {9,10}};
+     
         double eps = 20;
         int minPts = 3;
        
-         
-         
         // Run DBSCAN algorithm
         ArrayList<ArrayList<Double>> clusters = dbscan(dataset, eps, minPts);
  
