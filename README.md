@@ -5,7 +5,7 @@ A task consists of clustering the vectors extracted from different perturbed Gly
 Subtasks involved:
 1. Create different perturbed Glyphs of a character using FontForge Software.(25-30 glyphs)
 2. Extract path data from glyphs of character(.svg file) and record in CSV (pathData.csv)
-3. Evaluate coordinates from the path data,so that to used for clustering and Plotting of a Glyph on Graph.
+3. Evaluate coordinates from the path data,so that to be used for clustering and Plotting of a Glyph on Graph.
 4. Apply different Clustering Algorithm on extracted coordinates.
 
 
