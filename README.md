@@ -78,7 +78,7 @@ git clone < repo link >
 <img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png" width="300">
 <img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png" width="300">
 
- <div class="row">
+ <div class="row" style="float:left" >
   <div class="column">
     <img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png" alt="Snow" style="width:300px">
   </div>
