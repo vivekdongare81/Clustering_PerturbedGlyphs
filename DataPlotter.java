@@ -17,9 +17,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 public class DataPlotter {
 
     public static void mainn( double[][] dataset,String clr) {
-        // Initialize dataset
-        //double[][] dataset = {{1,2}, {3,4}, {5,6}, {7,8}, {9,10}};
-
+   
         // Create XYSeries object
         XYSeries series = new XYSeries("Dataset");
 
