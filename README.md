@@ -6,7 +6,7 @@ Subtasks involved:
 1. Create different perturbed Glyphs of a character using FontForge Software.(25-30 glyphs)
 2. Extract path data from glyphs of character(.svg file) and record in CSV (pathData.csv)
 3. Extract coordinates from the path data,so that to used for clustering and Plotting of a Glyph on Graph.
-4. Apply different Clusering Algorithm on extratced coordinates.
+4. Apply different Clustering Algorithm on extracted coordinates.
 
 
 Tools/Libraries used - FontForge, Batik Lib, jfree Lib.
@@ -57,9 +57,8 @@ git clone < repo link >
 
 ## Demo
 
-- Setup a tools and browsers in config.json as per requirements and run project to perform web automation tasks on all supported browsers respectively.
+- Create and store perturbed glyphs of any character using FontForge and store it in svgFiles Folder
 
-![image](https://user-images.githubusercontent.com/74758376/170940938-534ae94f-9452-4f4e-b336-a319dc030d40.png)
 
   
         * Browse to given URL to record the tools-browser which gets detected.
@@ -86,7 +85,7 @@ git clone < repo link >
 | ----------------- | ------------------------------------------------------------------ |
 | FontForge| [https://fontforge.org/en-US/downloads/](https://fontforge.org/en-US/downloads/)|
 | Batik |https://javadoc.io/doc/org.apache.xmlgraphics/batik-parser/latest/index.html|
-| jfree |[http://www.java2s.com/Code/Jar/j/Downloadjfreechartjar.html](http://www.java2s.com/Code/Jar/j/Downloadjfreechartjar.html)| |
+| Jfree |[http://www.java2s.com/Code/Jar/j/Downloadjfreechartjar.html](http://www.java2s.com/Code/Jar/j/Downloadjfreechartjar.html)| |
 
 
 
