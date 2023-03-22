@@ -1,4 +1,3 @@
-
 package com.pack;
 
 import java.awt.geom.PathIterator;
@@ -8,43 +7,18 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.List;
-
 import org.apache.batik.parser.AWTPathProducer;
 import org.apache.batik.parser.ParseException;
 import org.apache.batik.parser.PathParser;
 import org.apache.batik.util.XMLResourceDescriptor;
-
 import org.w3c.dom.svg.SVGDocument;
 import org.w3c.dom.svg.SVGPathElement;
-
 import org.apache.batik.dom.svg.SAXSVGDocumentFactory;
-
-
-
-import java.awt.Color;
-import java.awt.Shape;
-import java.awt.geom.Ellipse2D;
-import java.util.ArrayList;
-import javax.swing.JFrame;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-import org.netlib.util.doubleW;
-
 
 public class SVGtoVector {
 	static int cnt=0;
@@ -61,8 +35,10 @@ public class SVGtoVector {
     
     	
         String svgPathFolder = "C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\o_Glyphs\\";
-       String svgPath="C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\others\\o_NotoSans-Regular.svg";
-       // String svgPath=svgPathFolder+file.getName();
+      
+        // String svgPath="C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\svgFiles\\others\\o_NotoSans-Regular.svg";
+        String svgPath=svgPathFolder+file.getName();
+       
         String csvPath="C:\\Users\\donga\\eclipse-workspace\\FontCode\\src\\com\\pack\\pathData_.csv";
         
         try {
@@ -109,26 +85,8 @@ public class SVGtoVector {
                 }
                 
             }
-//       
-//            System.out.println(sizeOfxy+" "+dataset.length);
-//             for(int i=0;i<xyCoordinates.size();i++) {
-//                
-//                for(int j=0;j<xyCoordinates.get(i).size();j++) {
-//                	
-//                  System.out.print(xyCoordinates.get(i).get(j)+" "+xyCoordinates.get(i).get(j+1)+" ");
-//                	j++;
-//                	
-//                }
-//                System.out.println();
-//                }
-//      
-//             for(int i=0;i<dataset.length;i++) {
-//            	
-//            	 System.out.print(dataset[i][0]+" "+dataset[i][1]+" ");
-//             }
-//            
-        
-            plot(dataset, "blue");
+           //PLOTTING each Glyph in Folder
+             DataPlotter.mainn(dataset,"blue");
             
             
         } catch (IOException e) {
@@ -138,7 +96,7 @@ public class SVGtoVector {
             }
            
         	FileInx++;
-	   if(FileInx==3) {break; }
+	    //  if(FileInx==3) {break; }
         }
        
         
@@ -159,7 +117,9 @@ public class SVGtoVector {
             }
             
         }
-           DBScan.mainDBScan(dataset);
+           
+             DBScan.mainDBScan(dataset);
+            // KMeans.mainnKMeans(dataset);
         
     }
 
@@ -253,59 +213,7 @@ public class SVGtoVector {
         sizeOfxy+=xyCoordinates.get(FileInx).size();
     }
 
-
-        public static void plot( double[][] dataset,String clr) {
-            // Initialize dataset
-            //double[][] dataset = {{1,2}, {3,4}, {5,6}, {7,8}, {9,10}};
-
-            // Create XYSeries object
-            XYSeries series = new XYSeries("Dataset");
-
-            for (int i = 0; i < dataset.length; i++) {
-                double[] point = dataset[i];
-                series.add(point[0], point[1]);
-               // System.out.println(point[0]+" - "+point[1]);
-            }
-
-            // Add series to collection
-            XYSeriesCollection datasetCollection = new XYSeriesCollection();
-            datasetCollection.addSeries(series);
-
-            // Create chart
-            JFreeChart chart = ChartFactory.createScatterPlot("Dataset Plot", "X", "Y", datasetCollection, PlotOrientation.VERTICAL, true, true, false);
-
-            // Set plot properties
-            XYPlot plot = chart.getXYPlot();
-            Shape shape = new Ellipse2D.Double(-2.5, -2.5, 5, 5);
-            plot.getRenderer().setSeriesShape(0, shape);
-            
-            switch (clr) {
-    		case "blue": {
-    			
-    			 plot.getRenderer().setSeriesPaint(0, Color.blue);
-    		}case "green": {
-    			
-    			 plot.getRenderer().setSeriesPaint(0, Color.green);
-    		}case "red": {
-    			
-    			 plot.getRenderer().setSeriesPaint(0, Color.red);
-    		}
-    		default:
-    			  plot.getRenderer().setSeriesPaint(0, Color.black);
-    		}
-       
-            // Create chart panel
-            ChartPanel panel = new ChartPanel(chart);
-
-            // Create frame and add chart panel
-            JFrame frame = new JFrame("Dataset Plot");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.add(panel);
-            frame.pack();
-            frame.setVisible(true);
-        }
     
-
         private static List<String[]> parsePathDataInCSV(String pathData ,int FileInx ) {
       	
           List<String[]> coordinatePairs = new ArrayList<>();
