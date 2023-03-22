@@ -80,13 +80,13 @@ git clone < repo link >
 
  <div class="row">
   <div class="column">
-    <img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png" alt="Snow" style="width:100%">
+    <img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png" alt="Snow" style="width:300">
   </div>
   <div class="column">
-    <img src="https://user-images.githubusercontent.com/74758376/227006372-ccceb59a-d12a-480e-b73a-d664226c8f7c.png" alt="Forest" style="width:100%">
+    <img src="https://user-images.githubusercontent.com/74758376/227006372-ccceb59a-d12a-480e-b73a-d664226c8f7c.png" alt="Forest" style="width:300">
   </div>
   <div class="column">
-    <img src="https://user-images.githubusercontent.com/74758376/227006447-7b4affff-e40e-4c64-bf57-8afff3a5c520.png" alt="Mountains" style="width:100%">
+    <img src="https://user-images.githubusercontent.com/74758376/227006447-7b4affff-e40e-4c64-bf57-8afff3a5c520.png" alt="Mountains" style="width:300">
   </div>
 </div> 
 
