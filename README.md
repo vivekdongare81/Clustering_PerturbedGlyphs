@@ -67,42 +67,13 @@ git clone < repo link >
 ![Screenshot from 2023-03-23 00-07-44](https://user-images.githubusercontent.com/74758376/227004764-dd9daae6-ddb4-4696-923e-accb82bab6f1.png)
 
     * It further Extract Coordinates from path data and Plot each Glyph 
-    
-   ![Screenshot from 2023-03-23 00-11-10](https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png)
-   ![Screenshot from 2023-03-23 00-11-57](https://user-images.githubusercontent.com/74758376/227006372-ccceb59a-d12a-480e-b73a-d664226c8f7c.png)
-   ![Screenshot from 2023-03-23 00-12-19](https://user-images.githubusercontent.com/74758376/227006447-7b4affff-e40e-4c64-bf57-8afff3a5c520.png)
-   ![Screenshot from 2023-03-23 00-13-12](https://user-images.githubusercontent.com/74758376/227006520-bac64d82-c77a-45a3-bf9c-da0b3e7cf51f.png)
-
 
 <img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png" width="300">
-<img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png" width="300">
-<img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png" width="300">
+<img src="https://user-images.githubusercontent.com/74758376/227006372-ccceb59a-d12a-480e-b73a-d664226c8f7c.png" width="300">
+<img src="https://user-images.githubusercontent.com/74758376/227006447-7b4affff-e40e-4c64-bf57-8afff3a5c520.png" width="300">
+<img src="https://user-images.githubusercontent.com/74758376/227006520-bac64d82-c77a-45a3-bf9c-da0b3e7cf51f.png" width="300">
 
- <div class="row" style="display: flex" >
-  <div class="column">
-    <img  alt="Snow" style="width:300px">
-  </div>
-  <div class="column">
-    <img src="https://user-images.githubusercontent.com/74758376/227006372-ccceb59a-d12a-480e-b73a-d664226c8f7c.png" alt="Forest" style="width:300px">
-  </div>
-  <div class="column">
-    <img src="https://user-images.githubusercontent.com/74758376/227006447-7b4affff-e40e-4c64-bf57-8afff3a5c520.png" alt="Mountains" style="width:300px">
-  </div>
-</div> 
 
-<div style="float: left;">
-
-<img src="https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png">
-
-</div>
-
-<div style="float: left;">
-
-<img src="https://user-images.githubusercontent.com/74758376/227006372-ccceb59a-d12a-480e-b73a-d664226c8f7c.png" >
-
-</div>
-
-![image](https://user-images.githubusercontent.com/74758376/170940348-101414d9-555f-4a76-be98-61daf28ef342.png)
 
      * Analyze Results according to date performed in Admin Panel.
 ![image](https://user-images.githubusercontent.com/74758376/170940792-655e3c53-6bc7-4854-935e-fba8a5fc063f.png)
