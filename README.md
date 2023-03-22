@@ -56,7 +56,7 @@ git clone < repo link >
 
 ## Demo
 
-    * Create around 25-30 perturbed glyphs of any character using FontForge and store it in svgFiles Folder as .svg format </br>
+    * Create around 25-30 perturbed glyphs of any character using FontForge and export it as .svg format in svgFiles Folder  </br>
 
 ![Screenshot from 2023-03-22 23-56-16](https://user-images.githubusercontent.com/74758376/227002187-9a8be948-4ce0-4edc-9ad7-444c8c15bf94.png)
 ![Screenshot from 2023-03-22 23-59-32](https://user-images.githubusercontent.com/74758376/227002837-0ba4f6a4-ca95-4000-9499-652cc3cc72a7.png)
