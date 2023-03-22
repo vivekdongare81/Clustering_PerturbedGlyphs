@@ -63,12 +63,18 @@ git clone < repo link >
 ![Screenshot from 2023-03-22 23-59-32](https://user-images.githubusercontent.com/74758376/227002837-0ba4f6a4-ca95-4000-9499-652cc3cc72a7.png)
 
     * Running CSVtoVector.java  will store path data of each glyph in pathData.csv
- ![Screenshot from 2023-03-23 00-06-16](https://user-images.githubusercontent.com/74758376/227004468-640c99ea-2fed-46a7-9ff0-29ac9de6a231.png)
+    
+![Screenshot from 2023-03-23 00-07-44](https://user-images.githubusercontent.com/74758376/227004764-dd9daae6-ddb4-4696-923e-accb82bab6f1.png)
 
-       
-![image](https://user-images.githubusercontent.com/74758376/170940621-4bc505c5-cf1c-4bf2-99ee-a3814f4abb67.png)
+    * It further Extract Coordinates from path data and Plot each Glyph 
+    
+   ![Screenshot from 2023-03-23 00-11-10](https://user-images.githubusercontent.com/74758376/227006268-ec2c483c-8309-4e07-8773-d529a2807da9.png)
+   ![Screenshot from 2023-03-23 00-11-57](https://user-images.githubusercontent.com/74758376/227006372-ccceb59a-d12a-480e-b73a-d664226c8f7c.png)
+   ![Screenshot from 2023-03-23 00-12-19](https://user-images.githubusercontent.com/74758376/227006447-7b4affff-e40e-4c64-bf57-8afff3a5c520.png)
+   ![Screenshot from 2023-03-23 00-13-12](https://user-images.githubusercontent.com/74758376/227006520-bac64d82-c77a-45a3-bf9c-da0b3e7cf51f.png)
 
-      * Take a Screenshot of pages on GET URL using tool, parallelly save the results in Database to analyze the data. 
+
+
 
 ![image](https://user-images.githubusercontent.com/74758376/170940348-101414d9-555f-4a76-be98-61daf28ef342.png)
 
