@@ -75,8 +75,10 @@ git clone < repo link >
 
 
 
-     * Analyze Results according to date performed in Admin Panel.
-![image](https://user-images.githubusercontent.com/74758376/170940792-655e3c53-6bc7-4854-935e-fba8a5fc063f.png)
+     * Using DBScan Algo w'll get a cluster formed by Dense area on graph, we are mapping that cluster and check for each glyph how many of its coordinates are in cluster. More the coord presents more similar is the glyph.
+     
+![Screenshot from 2023-03-23 00-52-26](https://user-images.githubusercontent.com/74758376/227014313-a648dc36-170d-4183-9167-ea00ae9c8088.png)
+![Screenshot from 2023-03-23 00-52-40](https://user-images.githubusercontent.com/74758376/227014379-4d784a4f-1c9f-404b-8e14-9c66147da3cb.png)
 
 
 - All Combinations of Tool-Browser with their test Status will be recorded in results.json
