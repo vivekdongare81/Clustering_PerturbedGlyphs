@@ -57,8 +57,8 @@ git clone < repo link >
 
 ## Demo
 
-- Create and store perturbed glyphs of any character using FontForge and store it in svgFiles Folder
-![image](http:///home/vivek-pt7175/Pictures/Screenshots/Screenshot from 2023-03-22 23-46-23.png)
+- Create and store perturbed glyphs of any character using FontForge and store it in svgFiles Folder </br>
+![image](http://home/vivek-pt7175/Pictures/Screenshots/Screenshot from 2023-03-22 23-46-23.png)
 
         * Browse to given URL to record the tools-browser which gets detected.
         
