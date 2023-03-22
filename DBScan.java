@@ -11,7 +11,7 @@ public class DBScan {
     	
       //  double[][] datasett = {{1,2}, {3,4}, {50,6}, {51,7}, {9,10}};
         double eps = 20;
-        int minPts = 5;
+        int minPts = 3;
        
          
          
@@ -21,7 +21,7 @@ public class DBScan {
         HashMap<Double, Double> hm =new HashMap<Double, Double>();
         
         for (int i = 0; i < clusters.size(); i++) {
-            System.out.println("Cluster " + (i+1) + ": " + clusters.get(i));
+            System.out.println("Cluster "+ ": " + clusters.get(i));
             
         }
         for (int i = 0; i < clusters.size();i++) {
@@ -33,20 +33,23 @@ public class DBScan {
           
         }
         System.out.println(hm);
-        System.out.println(SVGtoCSV.allCoordinateArray.size());
+        
+        System.out.println(SVGtoVector.xyCoordinates.size());
      
-        for(int i=0;i<SVGtoCSV.allCoordinateArray.size();i++) {
+        for(int i=0;i<SVGtoVector.xyCoordinates.size();i++) {
         	int cnt=0; int total=0;
         	
-        	for(int j=0;j<SVGtoCSV.allCoordinateArray.get(i).size();j++) {
+        	for(int j=0;j<SVGtoVector.xyCoordinates.get(i).size();j++) {
         		total++;
-             if(hm.containsKey(SVGtoCSV.allCoordinateArray.get(i).get(j))){
-            	
-        		   if(Double.compare(hm.get(SVGtoCSV.allCoordinateArray.get(i).get(j)), SVGtoCSV.allCoordinateArray.get(i).get(j+1)) == 0) {
-        			    
+             if(hm.containsKey(SVGtoVector.xyCoordinates.get(i).get(j))){
+            	 System.out.println();
+        		   if(Double.compare(hm.get(SVGtoVector.xyCoordinates.get(i).get(j)),SVGtoVector.xyCoordinates.get(i).get(j+1)) == 0) {
+        			   
         			   cnt++;
         			   }	
-        		}
+        		}else {
+ 				   System.out.println();
+ 			   }
              j++;
         	}
         	System.out.println("for File- "+(i+1)+" total co- "+total+" incluster co- "+cnt);
