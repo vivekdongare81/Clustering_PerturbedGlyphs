@@ -78,11 +78,14 @@ git clone < repo link >
      
 ![Screenshot from 2023-03-23 00-52-26](https://user-images.githubusercontent.com/74758376/227014313-a648dc36-170d-4183-9167-ea00ae9c8088.png)
 ![Screenshot from 2023-03-23 00-52-40](https://user-images.githubusercontent.com/74758376/227014379-4d784a4f-1c9f-404b-8e14-9c66147da3cb.png)
+![Screenshot from 2023-03-23 10-01-09](https://user-images.githubusercontent.com/74758376/227104011-e6daee92-0fec-4c7e-95e7-7bfeda0d8adb.png)
+![Screenshot from 2023-03-23 10-01-23](https://user-images.githubusercontent.com/74758376/227104063-f424fbe5-d202-457d-aecf-0ad704d57794.png)
 
 
     * Using K Means Algo w'll get predefined Numbers of clusters from all the coordinates
     
    ![Screenshot from 2023-03-23 01-02-51](https://user-images.githubusercontent.com/74758376/227016545-1f37e848-96d6-4580-8a99-a457333036ea.png)
+![Screenshot from 2023-03-23 10-02-39](https://user-images.githubusercontent.com/74758376/227103956-6f2d6719-8fb5-41b0-a753-f1d79c04c674.png)
 
 
 
