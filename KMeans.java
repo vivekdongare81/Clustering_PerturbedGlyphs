@@ -95,7 +95,7 @@ public class KMeans {
      		points.add(new Point(dataset[i][0], dataset[i][1]));
      	}
     	 
-    	KMeans kMeans = new KMeans(points, 3);
+    	KMeans kMeans = new KMeans(points, 4);
     	Map<Point, List<Point>> clusters = kMeans.run();
     	System.out.println("Final clusters:");
     	for (Map.Entry<Point, List<Point>> entry : clusters.entrySet()) {
