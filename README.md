@@ -1,6 +1,6 @@
 # Clustering_PerturbedGlyphs
 
-A task consists of clustering the vectors extracted from different perturbed Glyphs of a character of any Font.
+A task consists of clustering the vectors extracted from different perturbed Glyphs of specified character of any Font.
 
 Subtasks involved:
 1. Create different perturbed glyphs of a character using FontForge Software.(25-30 glyphs)
